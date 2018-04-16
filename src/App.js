@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import AppBarExampleComposition from './Home/home'
+import Home from './Home'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-      <AppBarExampleComposition/>
+      <Home/>
   
 
       </div>
