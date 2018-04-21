@@ -4,6 +4,12 @@ main_home {
     font-family: sans-serif;
     height: 600;
     background-color: blue;
-    
+    display: flex;
+  };
+  top_address{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
   }
   

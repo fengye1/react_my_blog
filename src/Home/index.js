@@ -8,13 +8,41 @@ class Home extends Component{
             
             <div  className="main_home">
                 <HomeTop />
-                <TextField
-                    disabled={true}
-                    underlineShow={false}
-                    value={"个人小栈"}
-                    inputStyle={s_home.host_title}
-                />
-                 <FontIcon className="material-icons" style={s_home.icon}>home</FontIcon>
+                <div>
+                    <TextField
+                        disabled={true}
+                        underlineShow={false}
+                        value={"个人小栈"}
+                        inputStyle={s_home.host_title}
+                    />
+                </div>
+                <div className="top_address">
+                    <div>
+                        <FontIcon className="material-icons" style={s_home.icon}>home</FontIcon>
+                        <TextField
+                            disabled={false}
+                            underlineShow={false}
+                            value={"北京市"}
+                            
+                        />
+                    </div>
+                    <div>
+                        <FontIcon className="material-icons" style={s_home.icon}>email</FontIcon>
+                        <TextField
+                            disabled={false}
+                            underlineShow={false}
+                            value={"lv953301729@qq.com"}
+                        />
+                    </div>
+                    <div>
+                        <FontIcon className="material-icons" style={s_home.icon}>add_alert</FontIcon>
+                        <TextField
+                            disabled={false}
+                            underlineShow={false}
+                            value={"abc"}
+                        />
+                    </div>
+                </div>
                  
             </div>
         )
@@ -28,7 +56,6 @@ const s_home = {
         backgroundColor: 'blue',
         color: '#fff',
         fontSize: 40,
-        padding:10
     },
     icon:{
         fontSize:24,
