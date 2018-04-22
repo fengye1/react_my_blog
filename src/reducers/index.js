@@ -1,5 +1,11 @@
-import { combineReducers } from "redux"
+// import { combineReducers } from "redux"
 
-export default combineReducers({
-    
-});
+// export default combineReducers({
+
+
+// });
+ const reducer={
+
+}
+
+export default reducer

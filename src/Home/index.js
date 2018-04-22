@@ -1,66 +1,91 @@
 import React, {Component} from 'react';
-import HomeTop from './home_top'
-import {TextField, FontIcon} from 'material-ui'
-import './home.css';
+import { List, ListItem, TextField, FontIcon } from "material-ui";
+import Header from "../CommonComponent/header";
+import { blue700 } from 'material-ui/styles/colors';
+
+
 class Home extends Component{
     render(){
         return(
-            
-            <div  className="main_home">
-                <HomeTop />
-                <div>
+            <div>
+                <Header/>
+                <List>
+                    <ListItem
+                        primaryText={<TextField
+                            value={"仁恒子"}
+                            underlineShow={false}
+                            disabled={true}
+                            inputStyle={{color: blue700}}
+                        />}
+                        secondaryText={this._renderSecondItem()}
+                        secondaryTextLines={2}
+                    />
+                    <ListItem
+                        primaryText={<TextField
+                            value={"仁恒子"}
+                            underlineShow={false}
+                            disabled={true}
+                            inputStyle={{color: blue700}}
+                        />}
+                        secondaryText={this._renderSecondItem()}
+                        secondaryTextLines={2}
+                    />
+                    <ListItem
+                        primaryText={<TextField
+                            value={"仁恒子"}
+                            underlineShow={false}
+                            disabled={true}
+                            inputStyle={{color: blue700}}
+                        />}
+                        secondaryText={this._renderSecondItem()}
+                        secondaryTextLines={2}
+                    />
+                    <ListItem
+                        primaryText={<TextField
+                            value={"仁恒子"}
+                            underlineShow={false}
+                            disabled={true}
+                            inputStyle={{color: blue700}}
+                        />}
+                        secondaryText={this._renderSecondItem()}
+                        secondaryTextLines={2}
+                    />
+                </List>
+                    
+                
+            </div>
+        )
+    }
+
+    // 底部信息
+    _renderSecondItem = () => {
+        return (
+            <div>
+                <TextField
+                    disabled={true}
+                    underlineShow={true}
+                    value={"命若天定，我便胜了这个天"}
+                />
+                
+                    <FontIcon className="material-icons" style={s_home.icon}>add_alert</FontIcon>
                     <TextField
                         disabled={true}
-                        underlineShow={false}
-                        value={"个人小栈"}
-                        inputStyle={s_home.host_title}
+                        underlineShow={true}
+                        value={"2017-05-15"}
                     />
-                </div>
-                <div className="top_address">
-                    <div>
-                        <FontIcon className="material-icons" style={s_home.icon}>home</FontIcon>
-                        <TextField
-                            disabled={false}
-                            underlineShow={false}
-                            value={"北京市"}
-                            
-                        />
-                    </div>
-                    <div>
-                        <FontIcon className="material-icons" style={s_home.icon}>email</FontIcon>
-                        <TextField
-                            disabled={false}
-                            underlineShow={false}
-                            value={"lv953301729@qq.com"}
-                        />
-                    </div>
-                    <div>
-                        <FontIcon className="material-icons" style={s_home.icon}>add_alert</FontIcon>
-                        <TextField
-                            disabled={false}
-                            underlineShow={false}
-                            value={"abc"}
-                        />
-                    </div>
-                </div>
-                 
+                    <FontIcon className="material-icons" style={s_home.icon}>add_alert</FontIcon>
+                    <TextField
+                        disabled={true}
+                        underlineShow={true}
+                        value={"category"}
+                    />
+                
             </div>
         )
     }
 }
 const s_home = {
-    main:{
-        height: 400
-    },
-    host_title:{
-        backgroundColor: 'blue',
-        color: '#fff',
-        fontSize: 40,
-    },
-    icon:{
-        fontSize:24,
-        color:'red'
-    }
+
 }
 
 export default Home
