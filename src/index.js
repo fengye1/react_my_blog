@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Category from "./Category";
+import Home from './view/home';
+import Category from "./view/category";
+import Detail from "./view/detail";
+import Login from "./view/login"
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import { createStore,combineReducers ,applyMiddleware } from 'redux'
@@ -12,6 +14,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import createHistory from 'history/createBrowserHistory'
 import { Route } from "react-router";
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
+
 
 const history = createHistory()
 
@@ -33,8 +36,11 @@ ReactDOM.render(
             >
             <div>
                 {/* <App /> */}
-                <Route exact path="/" component={App} />
+                <Route exact path="/" component={Home} />
                 <Route path="/category" component={Category} />
+                <Route path="/detail" component={Detail} />
+                <Route path="/Login" component={Login} />
+                
             </div>
             </ConnectedRouter>
         </MuiThemeProvider>
