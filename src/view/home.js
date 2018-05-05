@@ -6,6 +6,10 @@ import { connect } from "react-redux";
 import {push } from 'react-router-redux'
 
 class Home extends Component{
+    constructor(props){
+        super(props)
+       
+    }
     render(){
         return(
             <div style={s_home.main}>
@@ -83,9 +87,10 @@ class Home extends Component{
         )
     }
     _linkDetail=(article_id)=>{
-        console.log("dddd",this.props)
+        
         this.props.dispatch(push('/detail'))
     }
+   
 }
 const s_home = {
     main:{
