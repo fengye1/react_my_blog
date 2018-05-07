@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import { List, ListItem, TextField, FontIcon, Divider, Subheader } from "material-ui";
+import { List, ListItem, FontIcon, Divider, Subheader } from "material-ui";
 import Header from "../CommonComponent/header";
-import { blue700 } from 'material-ui/styles/colors';
 import { connect } from "react-redux";
 import {push } from 'react-router-redux'
 
@@ -19,34 +18,19 @@ class Home extends Component{
                     />
                     <Divider/>
                     <ListItem
-                        primaryText={<TextField
-                            value={"仁恒子"}
-                            underlineShow={false}
-                            disabled={true}
-                            inputStyle={{color: blue700}}
-                        />}
+                          primaryText={"仁恒子"}
                         secondaryText={this._renderSecondItem()}
                         secondaryTextLines={2}
                     />
                     <Divider/>
                     <ListItem
-                        primaryText={<TextField
-                            value={"仁恒子"}
-                            underlineShow={false}
-                            disabled={true}
-                            inputStyle={{color: blue700}}
-                        />}
+                          primaryText={"仁恒子"}
                         secondaryText={this._renderSecondItem()}
                         secondaryTextLines={2}
                     />
                     <Divider/>
                     <ListItem
-                        primaryText={<TextField
-                            value={"仁恒子"}
-                            underlineShow={false}
-                            disabled={true}
-                            inputStyle={{color: blue700}}
-                        />}
+                        primaryText={"仁恒子"}
                         secondaryText={this._renderSecondItem()}
                         secondaryTextLines={2}
                     />
@@ -69,13 +53,14 @@ class Home extends Component{
 
 
                     <div style={s_home.item_second_view}>
-                        <FontIcon className="material-icons" style={s_home.icon}>date_range</FontIcon>
-                        <Subheader>2017-05-15</Subheader>
+                        <FontIcon className="material-icons" style={s_home.item_icon}>date_range</FontIcon>
+                        <p>2012-05-15</p>
                       
                     </div>
                     <div style={s_home.item_second_view}>
-                        <FontIcon className="material-icons" style={s_home.icon}>folder</FontIcon>
-                        <Subheader>category</Subheader>
+                        <FontIcon className="material-icons" style={s_home.item_icon}>folder</FontIcon>
+                        <p>category</p>
+                      
                     </div>
                 </div>
             </div>
@@ -83,7 +68,6 @@ class Home extends Component{
         )
     }
     _linkDetail=(article_id)=>{
-        console.log("dddd",this.props)
         this.props.dispatch(push('/detail'))
     }
 }
@@ -109,6 +93,7 @@ const s_home = {
     item_second_view:{
         display:'flex',
         flexDirection:'row',
+        marginRight:10,
         // justifyContent:'center',
         alignItems:'center'
     },

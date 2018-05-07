@@ -10,9 +10,9 @@ import {push } from 'react-router-redux'
 
 class AppBarComponent extends Component {
 
-  constructor(props){
-      super(props)
-  }
+  // constructor(props){
+  //     super(props)
+  // }
 
   right_menu=()=>{
     return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown'
-import { Paper, Subheader, FlatButton , FontIcon} from 'material-ui';
+import { Paper, Subheader , FontIcon} from 'material-ui';
 //详情页面
 class Detail extends Component{
     constructor(props){
