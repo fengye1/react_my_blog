@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AdminTabs from '../../CommonComponent/admin_tabs'
-import { Paper, Avatar, FlatButton, Subheader } from 'material-ui'
+import { Paper, Avatar, FlatButton, Subheader, RaisedButton} from 'material-ui'
 import Delete from 'material-ui/svg-icons/action/delete';
 class ArticlesAdmin extends Component{
     render(){
@@ -11,7 +11,7 @@ class ArticlesAdmin extends Component{
                     <div style={s_articles.middle}> 
                         <div style={s_articles.middle_left}>
                             <span>文章管理</span>
-                            <span>新建文章</span>
+                            <RaisedButton label="新建文章" secondary={true} style={{margin:12}} />
                         </div>
                         <div style={ s_articles.user_item }>
                             <div>

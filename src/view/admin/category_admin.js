@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import AdminTabs from '../../CommonComponent/admin_tabs'
-import { Paper, Avatar, FlatButton, Subheader } from 'material-ui'
+import { Paper, Avatar, FlatButton, Subheader, RaisedButton, Dialog } from 'material-ui'
 import Delete from 'material-ui/svg-icons/action/delete';
 
 
 class CategoryAdmin extends Component{
+    constructor(props){
+        super(props)
+        this.state={
+            dialogShow:false
+        }
+    }
+
     render(){
         return(
             <div style={s_articles.main}>
@@ -13,11 +20,15 @@ class CategoryAdmin extends Component{
                     <div style={s_articles.middle}> 
                         <div style={s_articles.middle_left}>
                             <span>分类管理</span>
-                            <span>新建分类</span>
+                            <RaisedButton label="新建分类" secondary={true} style={{margin:12}} onClick={()=>{
+                               this.setState({
+                                   dialogShow: true
+                               })
+                            }} />
                         </div>
                         <div style={ s_articles.user_item }>
                             <div>
-                                <p style={s_articles.sub_title}>分类名称</p>
+                                <span style={s_articles.sub_title}>分类名称</span>
                                 <span style={s_articles.item_date}>2018-07-06</span>
                             </div>
                             <FlatButton
@@ -29,8 +40,45 @@ class CategoryAdmin extends Component{
                         </div>
                     </div>
                 </Paper>
+                {this._newCategoryDialog()}
             </div>
         )
+    }
+
+    // 新建分类dialog
+    _newCategoryDialog=()=>{
+        const actions = [
+            <FlatButton
+              label="Cancel"
+              primary={true}
+              onClick={this._close_category}
+            />,
+            <FlatButton
+              label="Submit"
+              primary={true}
+              keyboardFocused={true}
+              onClick={this._close_category}
+            />,
+          ];
+      
+          return (
+            <div>
+              <Dialog
+                title="分类"
+                actions={actions}
+                modal={false}
+                open={this.state.dialogShow}
+                onRequestClose={this._close_category}
+              >
+                    The actions in this window were passed in as an array of React objects.
+              </Dialog>
+            </div>
+          )
+    }
+    _close_category=()=>{
+        this.setState({
+            dialogShow:false
+        })
     }
 }
 
@@ -61,6 +109,9 @@ const s_articles = {
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
+        borderStyle:"solid",
+        borderWidth:0.5,
+        pading:10
     },
     item_text:{
         fontSize:22,

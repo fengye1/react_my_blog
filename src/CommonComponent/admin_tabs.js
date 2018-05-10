@@ -14,19 +14,18 @@ class AdminTabs extends Component{
                  <Drawer width={200} openSecondary={false} open={true}>
                     <AppBar title="AppBar" />
                     <Menu>
-                        <MenuItem primaryText="Preview" leftIcon={<RemoveRedEye />} />
-                        <MenuItem primaryText="Share" leftIcon={<PersonAdd />} />
-                        <MenuItem primaryText="Get links" leftIcon={<ContentLink />} />
-                        <Divider />
-                        <MenuItem primaryText="Make a copy" leftIcon={<ContentCopy />} />
-                        <MenuItem primaryText="Download" leftIcon={<Download />} />
-                        <Divider />
-                        <MenuItem primaryText="Remove" leftIcon={<Delete />} />
+                        <MenuItem primaryText="用户管理" leftIcon={<RemoveRedEye/>} onClick={this._link} />
+                        <MenuItem primaryText="分类管理" leftIcon={<PersonAdd />}  onClick={this._link}/>
+                        <MenuItem primaryText="文章管理" leftIcon={<ContentLink />}  onClick={this._link} />
+                     
                     </Menu>
                 </Drawer>
             </div>
         )
     }
-}
 
+    _link(type){
+        console.log("id==",type)
+    }
+}
 export default AdminTabs
