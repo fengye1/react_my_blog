@@ -20,7 +20,8 @@ class AppBarComponent extends Component {
       >
         <FlatButton label="首页" style={s_top.btn} labelStyle={s_top.btn_text} onClick={this._linkHome}/>
         <FlatButton label="分类" style={s_top.btn} labelStyle={s_top.btn_text}  onClick={this._linkCategory} />
-        <FlatButton label="关于" style={s_top.btn} labelStyle={s_top.btn_text}/>
+        {/* <FlatButton label="关于" style={s_top.btn} labelStyle={s_top.btn_text}/> */}
+        <FlatButton label="登录" style={s_top.btn} labelStyle={s_top.btn_text} onClick={this._linkLogin}/>
       </div>
     )
   }
@@ -41,10 +42,14 @@ class AppBarComponent extends Component {
   }
 
   _linkHome=()=>{
-    this.props.dispatch(push('/'))
+    this.props.link_home()
   }
   _linkCategory=()=>{
-    this.props.dispatch(push('/category'))
+    this.props.link_category()
+    
+  }
+  _linkLogin=()=>{
+    this.props.link_login()
   }
 
 }
@@ -72,4 +77,20 @@ const s_top={
     fontSize:16
   }
 }
-export default connect()(AppBarComponent)
+const mapStateToProps= state =>({
+})
+
+
+const mapDispatchToProps = dispatch => ({
+  link_home : ()=>{
+    dispatch(push('/'))
+  },
+  link_category: ()=>{
+    dispatch(push('/category'))
+  },
+  link_login:()=>{
+    dispatch(push('/login'))
+  }
+
+});
+export default connect(mapStateToProps,mapDispatchToProps)(AppBarComponent)

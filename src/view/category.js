@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Header from "../CommonComponent/header";
-import { TextField, List, ListItem,Subheader } from 'material-ui';
+import {List, ListItem,Subheader } from 'material-ui';
 import { connect } from "react-redux";
 import { getCategoryDataStart, getCategoryDataSuccess, getCategoryDataFailure } from "../actions/CategoryAction";
 
 class Category extends Component{
 
-    constructor(props){
-        super(props)
+    // constructor(props){
+    //     super(props)
      
-    }
+    // }
 
     
     componentDidMount() {

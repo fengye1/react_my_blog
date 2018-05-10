@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import {push } from 'react-router-redux'
 
 class Home extends Component{
-    constructor(props){
-        super(props)
+    // constructor(props){
+    //     super(props)
        
-    }
+    // }
     render(){
         return(
             <div style={s_home.main}>
