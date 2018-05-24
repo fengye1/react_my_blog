@@ -1,3 +1,10 @@
+
+
+/**
+ * CommoneReducer
+ */
+export const CHANGE_LOGIN_STATUS = "CHANGE_LOGIN_STATUS"
+
 /**
  * 分类 action
  */

@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
-import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-
-import FlatButton from 'material-ui/FlatButton';
-
+import block, { AppBar, IconButton, FlatButton, Popover, Menu, MenuItem, RaisedButton, Avatar, FloatingActionButton } from 'material-ui';
+import { PopoverAnimationVertical } from "material-ui/Popover"
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import { connect } from "react-redux";
-import {push } from 'react-router-redux'
+import { push } from 'react-router-redux'
 
 class AppBarComponent extends Component {
 
-  // constructor(props){
-  //     super(props)
-  // }
+  constructor(props){
+      super(props)
+      this.state={
+        menu_is_show : false
+      }
+  }
 
   right_menu=()=>{
     return (
@@ -20,8 +20,20 @@ class AppBarComponent extends Component {
       >
         <FlatButton label="首页" style={s_top.btn} labelStyle={s_top.btn_text} onClick={this._linkHome}/>
         <FlatButton label="分类" style={s_top.btn} labelStyle={s_top.btn_text}  onClick={this._linkCategory} />
-        {/* <FlatButton label="关于" style={s_top.btn} labelStyle={s_top.btn_text}/> */}
-        <FlatButton label="登录" style={s_top.btn} labelStyle={s_top.btn_text} onClick={this._linkLogin}/>
+        <FlatButton label="关于" style={s_top.btn} labelStyle={s_top.btn_text}/>
+        {
+          this.props.login ?
+          <FlatButton label="登录" style={s_top.btn} labelStyle={s_top.btn_text} onClick={this._linkLogin}/>  
+          :
+        <IconButton
+          onClick={this._handleClickMenu}
+        >
+          <Avatar src={require("../assets/image/circle.png")} size={30}/>
+        </IconButton>
+      
+   
+        }
+     
       </div>
     )
   }
@@ -35,8 +47,22 @@ class AppBarComponent extends Component {
           title="Home"
           iconElementLeft={<IconButton><NavigationClose /></IconButton>}
           iconElementRight={this.right_menu()}
-          iconStyleRight={{margin:8}}
         />
+             <Popover
+          open={this.state.menu_is_show}
+          anchorEl={this.state.anchorEl}
+          anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
+          targetOrigin={{horizontal: 'right', vertical: 'top'}}
+          onRequestClose={this._handleClickMenu}
+          animation={PopoverAnimationVertical}
+        >
+          <Menu>
+            <MenuItem primaryText="Refresh" />
+            <MenuItem primaryText="Help &amp; feedback" />
+            <MenuItem primaryText="Settings" />
+            <MenuItem primaryText="Sign out" />
+          </Menu>
+        </Popover>
       </div>
     );
   }
@@ -51,6 +77,11 @@ class AppBarComponent extends Component {
   _linkLogin=()=>{
     this.props.link_login()
   }
+  _handleClickMenu=()=>{
+    this.setState({
+      menu_is_show: !this.state.menu_is_show
+    })
+  }
 
 }
 
@@ -59,25 +90,34 @@ const s_top={
   main:{
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor:'#eeeeee'
   },
   right:{
     width:'100%',
-    margin:10,
-    justifyContent: 'center'
+    height:'100%',
+    justifyContent: 'center',
+    alignItems:'center'
   
   },
   btn:{
     height:'100%',
     margin:0,
-    size:50,
     color: '#fff',
   },
   btn_text:{
     fontSize:16
+  },
+  admin:{
+    float:'right',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center'
   }
 }
-const mapStateToProps= state =>({
+
+const mapStateToProps = state => ({
+  login: state.CommonReducer.login
 })
 
 

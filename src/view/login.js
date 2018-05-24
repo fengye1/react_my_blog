@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { TextField, FlatButton, Avatar} from 'material-ui';
+import {push } from 'react-router-redux'
+import { connect } from 'react-redux'
+import { changeLoginStatus } from "../actions/CommonAction";
+
+
 class Login extends Component{
     render(){
         return(
@@ -26,10 +31,16 @@ class Login extends Component{
                             backgroundColor="#a4c639"
                             hoverColor="#8AA62F"
                             style={s_login.login_btn}
+                            onClick={this._linkIndex}
                         />
                 </div>
             </div>
         )
+    }
+
+    _linkIndex=()=>{
+        this.props.change_login_status(true)
+        this.props.push_index()
     }
 }
 
@@ -54,4 +65,20 @@ const s_login = {
         color: '#fff'
     }
 }
-export default Login
+const mapStateToProps =(state)=>{
+    return state
+    
+}
+
+
+const mapDispatchToProps = dispatch => ({
+    // 更改登录状态
+    change_login_status: (status)=>{
+        dispatch(changeLoginStatus(status))
+    },
+    push_index:()=>{
+       dispatch(push('/'))
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
